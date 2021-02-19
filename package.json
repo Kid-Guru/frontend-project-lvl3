@@ -1,0 +1,28 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Kid-Guru/frontend-project-lvl3/workflows/hexlet-check/badge.svg)](https://github.com/Kid-Guru/frontend-project-lvl3/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kid-Guru/frontend-project-lvl3.git"
+  },
+  "author": "birkov.alexandr@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kid-Guru/frontend-project-lvl3/issues"
+  },
+  "homepage": "https://github.com/Kid-Guru/frontend-project-lvl3#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3"
+  }
+}
