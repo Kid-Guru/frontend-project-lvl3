@@ -18,10 +18,13 @@
             <form>
               <div class="row">
                 <div class="col">
-                  <input autofocus type="text" name="rrsLink" class="form-control form-control-lg" placeholder="Ссылка RSS" aria-label="Ссылка RSS">
+                  <input autofocus type="text" name="rssLink" class="form-control form-control-lg" placeholder="Ссылка RSS" aria-label="Ссылка RSS">
                 </div>
                 <div class="col-auto">
-                  <button type="submit" class="btn btn-lg btn-primary">Добавить</button>
+                  <button type="submit" class="btn btn-lg btn-primary" name="submitButton">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Добавить
+                  </button>
                 </div>
               </div>
             </form>

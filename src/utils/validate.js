@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  rrsLink: yup.string().required('Поле обязательно').url('Ссылка должна быть валидным URL'),
+  rssLink: yup.string().required('Поле обязательно').url('Ссылка должна быть валидным URL'),
 });
 
 const validate = (fields) => {

@@ -13,8 +13,14 @@ const buildPosts = (postsState) => {
   return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
 };
 
-export default (state) => {
+const renderForm = (stateForm) => {
   const form = document.querySelector('form');
+  if (stateForm.rssLink === '') form.reset();
+  const feedback = document.querySelector('.feedback');
+  feedback.innerHTML = stateForm.errors.join('');
+};
+
+const renderContent = (state) => {
   const feed = document.querySelector('.feed');
   const posts = document.querySelector('.posts');
 
@@ -22,4 +28,6 @@ export default (state) => {
   feed.innerHTML = feedsData;
   const postsData = buildPosts(state.posts);
   posts.innerHTML = postsData;
-}
+};
+
+export { renderContent, renderForm };

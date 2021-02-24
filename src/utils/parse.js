@@ -1,8 +1,6 @@
 const domparser = new DOMParser();
 
 export default (rawData) => {
-  // console.log(rawData)
-  // console.dir(rawData)
   const docXML = domparser.parseFromString(rawData, 'text/xml');
   const channelNode = docXML.querySelector('channel');
   const itemNodes = docXML.querySelectorAll('item');
