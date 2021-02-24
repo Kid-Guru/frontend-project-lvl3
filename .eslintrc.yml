@@ -4,7 +4,7 @@ plugins:
 
 # https://eslint.org/docs/user-guide/configuring#specifying-environments
 env:
-  node: true
+  browser: true
   es2020: true
   jest/globals: true
 
