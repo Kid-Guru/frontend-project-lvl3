@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 const buildFeeds = (feedsState) => {
   if (feedsState.length === 0) {
     return '';
@@ -17,7 +19,10 @@ const renderForm = (stateForm) => {
   const form = document.querySelector('form');
   if (stateForm.rssLink === '') form.reset();
   const feedback = document.querySelector('.feedback');
-  feedback.innerHTML = stateForm.errors.join('');
+  feedback.innerHTML = i18next.t(stateForm.errors.join(''));
+  const submitButtonSpinner = document.querySelector('[type="submit"]').querySelector('.spinner-grow');
+  const commandInvisibleClass = stateForm.fetching ? 'remove' : 'add';
+  submitButtonSpinner.classList[commandInvisibleClass]('invisible');
 };
 
 const renderContent = (state) => {

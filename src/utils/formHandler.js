@@ -4,7 +4,7 @@ export default (formData, sources) => {
   const validationResult = validate(formData);
   const { rssLink } = formData;
   let isValid = validationResult.length === 0;
-  const errors = validationResult.map((item) => item.message);
+  const errors = validationResult.map((item) => item);
   if (sources.some((i) => i === rssLink)) {
     isValid = false;
     errors.push('Источник уже добавлен');

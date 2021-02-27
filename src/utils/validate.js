@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  rssLink: yup.string().required('Поле обязательно').url('Ссылка должна быть валидным URL'),
+  rssLink: yup.string().required('form.fieldError.required').url('form.fieldError.invalidURL'),
 });
 
 const validate = (fields) => {
@@ -9,7 +9,7 @@ const validate = (fields) => {
     schema.validateSync(fields, { abortEarly: false });
     return [];
   } catch (e) {
-    return e.inner;
+    return e.errors;
   }
 };
 

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { NormalModuleReplacementPlugin } = require('webpack');
 // const { LoaderOptionsPlugin } = require('webpack');
 
 module.exports = {
@@ -12,6 +13,10 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/,
   },
   module: {
     rules: [
@@ -33,5 +38,10 @@ module.exports = {
       template: './src/template.html',
     }),
     new CleanWebpackPlugin(),
+    // new NormalModuleReplacementPlugin(
+    //   /yup\/lib\/locale\.js/,
+    //   path.resolve(process.cwd(), './src/utils/validate.js'),
+    // ),
+
   ],
 };
