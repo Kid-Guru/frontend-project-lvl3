@@ -11,7 +11,7 @@ const buildPosts = (postsState) => {
   if (postsState.length === 0) {
     return '';
   }
-  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">Просмотр</button></li>`);
+  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" target="_blank" class="font-weight-bold" data-id="${i}">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">Просмотр</button></li>`);
   return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
 };
 

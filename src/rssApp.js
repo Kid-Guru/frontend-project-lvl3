@@ -57,7 +57,7 @@ export default async () => {
         watchedState.posts = [...parsedData.posts, ...watchedState.posts];
       })
       .catch((error) => {
-        console.log(error);
+        watchedState.form.errors.push(error.message);
         watchedState.form.fetching = false;
       })
       .then(() => {

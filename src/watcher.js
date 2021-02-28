@@ -17,6 +17,8 @@ const watchedState = onChange(state, (path) => {
   // console.log(state);
   if (path === 'form') {
     renderForm(state.form);
+  } else if (path === 'form.errors') {
+    renderForm(state.form);
   } else if (path === 'form.rssLink') {
     renderForm(state.form);
   } else if (path === 'posts') {

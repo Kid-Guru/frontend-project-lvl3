@@ -18,7 +18,7 @@ export default (rawData, feedID) => {
     const description = itemNode.querySelector('description').textContent;
     const id = itemNode.querySelector('guid').textContent;
     return {
-      title, link, description, feedID, id,
+      title, link, description, feedID, id, touched: false,
     };
   });
 
