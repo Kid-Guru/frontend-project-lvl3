@@ -11,18 +11,21 @@ const buildPosts = (postsState) => {
   if (postsState.length === 0) {
     return '';
   }
-  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" target="_blank" class="font-weight-bold" data-id="${i}">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">Просмотр</button></li>`);
+  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" target="_blank" class="fw-bold" data-id="${i}">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">Просмотр</button></li>`);
   return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
 };
 
-const renderForm = (stateForm) => {
+const renderForm = (stateForm, stateName) => {
   const form = document.querySelector('form');
   if (stateForm.rssLink === '') form.reset();
   const feedback = document.querySelector('.feedback');
   feedback.innerHTML = i18next.t(stateForm.errors.join(''));
-  const submitButtonSpinner = document.querySelector('[type="submit"]').querySelector('.spinner-grow');
-  const commandInvisibleClass = stateForm.fetching ? 'remove' : 'add';
-  submitButtonSpinner.classList[commandInvisibleClass]('invisible');
+  const submitButton = document.querySelector('[type="submit"]');
+  const submitButtonSpinner = submitButton.querySelector('.spinner-grow');
+  const toSubmitButtonDisable = stateName === 'fetching' ? 'add' : 'remove';
+  submitButton.classList[toSubmitButtonDisable]('disabled');
+  const toInvisibleSpinner = stateName === 'fetching' ? 'remove' : 'add';
+  submitButtonSpinner.classList[toInvisibleSpinner]('invisible');
 };
 
 const renderContent = (state) => {

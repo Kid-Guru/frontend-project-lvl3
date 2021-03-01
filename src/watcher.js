@@ -6,8 +6,9 @@ const state = {
     isValid: true,
     rssLink: '',
     errors: [],
-    fetching: false,
+    // fetching: false,
   },
+  stateName: 'init',
   sources: [],
   feeds: [],
   posts: [],
@@ -23,8 +24,8 @@ const watchedState = onChange(state, (path) => {
     renderForm(state.form);
   } else if (path === 'posts') {
     renderContent(state);
-  } else if (path === 'form.fetching') {
-    renderForm(state.form);
+  } else if (path === 'stateName') {
+    renderForm(state.form, state.stateName);
   }
 });
 

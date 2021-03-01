@@ -24,13 +24,16 @@ export default async () => {
       .then((responses) => responses.flatMap((response, index) => {
         return parse(response.data, index).posts;
       }))
-      .catch((error) => {
-        console.log(error);
-      })
       .then((parsedPosts) => {
         const newPosts = selectNewPosts(parsedPosts, watchedState.posts);
-        console.log(newPosts);
         watchedState.posts = [...newPosts, ...watchedState.posts];
+      })
+      .catch((error) => {
+        if (!watchedState.form.errors.some((err) => err === error.message)) {
+          watchedState.form.errors.push(error.message);
+        }
+      })
+      .then(() => {
         setTimeout(refreshFeeds, 5000);
       });
   };
@@ -42,13 +45,15 @@ export default async () => {
     const { isValid, rssLink, errors } = formHandler(formData, watchedState.sources);
     watchedState.form = { isValid, rssLink, errors };
     if (!isValid) return null;
-    watchedState.form.fetching = true;
+    // watchedState.form.fetching = true;
+    watchedState.stateName = 'fetching';
     // clearInterval(refreshingFunctionID);
     axios.get(rssLink)
       .then((response) => {
         const feedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, feedID);
-        watchedState.form.fetching = false;
+        // watchedState.form.fetching = false;
+        watchedState.stateName = 'idle';
         return parsedData;
       })
       .then((parsedData) => {
@@ -58,7 +63,8 @@ export default async () => {
       })
       .catch((error) => {
         watchedState.form.errors.push(error.message);
-        watchedState.form.fetching = false;
+        watchedState.stateName = 'idle';
+        // watchedState.form.fetching = false;
       })
       .then(() => {
         watchedState.form.rssLink = '';
