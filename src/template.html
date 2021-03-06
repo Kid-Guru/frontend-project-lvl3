@@ -2,19 +2,17 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RSS reader</title>
 </head>
 
 <body>
   <div id="point">
-    <div class="bg-primary">
+    <div class="bg-primary shadow-sm">
       <div class="container-lg px-4">
-        <nav class="navbar navbar-light col-xl-10 mx-auto justify-content-between justify-content-md-end">
-          <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <nav class="navbar navbar-light col-xl-10 mx-auto justify-content-end">
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
             <label class="btn btn-outline-dark" for="btnradio1">Русский</label>
@@ -44,14 +42,11 @@
         </div>
       </div>
     </div>
-    <div class="bg-dark">
+    <div class="">
       <div class="container-lg p-4">
         <div class="row">
           <div class="col-xl-10 mx-auto">
-            <h1 class="text-light">RSS агрегатор</h1>
-            <p class="lead text-secondary">
-              Начните читать RSS сегодня! Это легко, это красиво.
-            </p>
+            <h1 class="display-3">RSS агрегатор</h1>
             <form>
               <div class="row gy-3">
                 <div class="col-sm col-12">
@@ -71,9 +66,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid bg-dark min-vh-100">
-      <div class="container-lg p-4">
-        <div class="row">
+    <div class="container-fluid">
+      <div class="container-lg p-4 ">
+        <div class="row gy-4">
           <div class="col-xl-10 mx-auto feed"></div>
           <div class="col-xl-10 mx-auto posts"></div>
         </div>

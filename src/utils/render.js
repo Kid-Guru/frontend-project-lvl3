@@ -4,34 +4,28 @@ const buildFeeds = (feedsState) => {
   if (feedsState.length === 0) {
     return '';
   }
-  const feedsItems = feedsState.map((feed) => `<li class="list-group-item"><h3>${feed.channelTitle}</h3><p>${feed.channelDescription}</p></li>`);
-  return `<h2>Фиды</h2><ul class="list-group-flush mb-5">${feedsItems.join('')}</ul>`;
+  const feedsItems = feedsState.map((feed) => `<li class="list-group-item px-0 "><h3 class="h4">${feed.channelTitle}</h3><p class="m-0">${feed.channelDescription}</p></li>`);
+  return `
+  <div class="card shadow">
+  <div class="card-body">
+    <h2 class="h3">Фиды</h2>
+    <ul class="list-group-flush ps-0 m-0">${feedsItems.join('')}</ul>
+  </div>
+</div>`;
 };
 const buildPosts = (postsState) => {
   if (postsState.length === 0) {
     return '';
   }
-  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start bg-dark border-light"><a href="${post.link}" target="_blank" class="${post.touched ? 'fw-normal' : 'fw-bold'}" data-id="${post.id}" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${post.id}" data-toggle="modal" >Просмотр</button></li>`);
-  // return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
+  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-center border-light px-0"><a href="${post.link}" target="_blank" class="${post.touched ? 'fw-normal' : 'fw-bold'} link-dark" data-id="${post.id}" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm ms-2 fw-bolder" data-id="${post.id}" data-toggle="modal" >Просмотр</button></li>`);
   return `
-  <div class="card bg-dark border-light text-light">
-    <h2 class="card-header h4">
-      Featured
-    </h2>
+  <div class="card shadow">
   <div class="card-body">
-    <ul class="list-group-flush">${postsItems.join('')}</ul>
+    <h2 class="h3">Посты</h2>
+    <ul class="list-group-flush ps-0">${postsItems.join('')}</ul>
   </div>
 </div>`;
 };
-
-{/* <div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-
-  </div>
-</div> */}
 
 const renderForm = (stateForm, stateName) => {
   const form = document.querySelector('form');
