@@ -5,6 +5,7 @@ import formHandler from './utils/formHandler.js';
 import watchedState from './watcher.js';
 import ru from './locales/ru.js';
 import selectNewPosts from './utils/selectNewPosts.js';
+import Modal from './utils/modal.js';
 
 export default async () => {
   await i18next.init({
@@ -14,6 +15,7 @@ export default async () => {
       ru,
     },
   });
+  let myModal = new Modal('exampleModal');
 
   const refreshFeeds = () => {
     const { sources } = watchedState;
@@ -71,5 +73,19 @@ export default async () => {
         setTimeout(refreshFeeds, 5000);
       });
     return null;
+  });
+
+  const posts = document.querySelector('.posts');
+  posts.addEventListener('click', (e) => {
+    const clickedElemId = e.target.dataset.id;
+    if (clickedElemId) {
+      watchedState.posts.find(post => post.id === clickedElemId).touched = true;
+    }
+    const closestButton = e.target.closest('button[data-toggle=modal]');
+    if (closestButton) {
+      const { id } = closestButton.dataset;
+      const searchedPost = watchedState.posts.find((post) => post.id === id);
+      myModal.show(searchedPost);
+    }
   });
 };

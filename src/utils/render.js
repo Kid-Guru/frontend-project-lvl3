@@ -5,15 +5,33 @@ const buildFeeds = (feedsState) => {
     return '';
   }
   const feedsItems = feedsState.map((feed) => `<li class="list-group-item"><h3>${feed.channelTitle}</h3><p>${feed.channelDescription}</p></li>`);
-  return `<h2>Фиды</h2><ul class="list-group mb-5">${feedsItems.join('')}</ul>`;
+  return `<h2>Фиды</h2><ul class="list-group-flush mb-5">${feedsItems.join('')}</ul>`;
 };
 const buildPosts = (postsState) => {
   if (postsState.length === 0) {
     return '';
   }
-  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" target="_blank" class="fw-bold" data-id="${i}">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">Просмотр</button></li>`);
-  return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
+  const postsItems = postsState.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start bg-dark border-light"><a href="${post.link}" target="_blank" class="${post.touched ? 'fw-normal' : 'fw-bold'}" data-id="${post.id}" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${post.id}" data-toggle="modal" >Просмотр</button></li>`);
+  // return `<h2>Посты</h2><ul class="list-group">${postsItems.join('')}</ul>`;
+  return `
+  <div class="card bg-dark border-light text-light">
+    <h2 class="card-header h4">
+      Featured
+    </h2>
+  <div class="card-body">
+    <ul class="list-group-flush">${postsItems.join('')}</ul>
+  </div>
+</div>`;
 };
+
+{/* <div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+
+  </div>
+</div> */}
 
 const renderForm = (stateForm, stateName) => {
   const form = document.querySelector('form');

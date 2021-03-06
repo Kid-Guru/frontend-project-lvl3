@@ -6,7 +6,6 @@ const state = {
     isValid: true,
     rssLink: '',
     errors: [],
-    // fetching: false,
   },
   stateName: 'init',
   sources: [],
@@ -15,7 +14,6 @@ const state = {
 };
 
 const watchedState = onChange(state, (path) => {
-  // console.log(state);
   if (path === 'form') {
     renderForm(state.form);
   } else if (path === 'form.errors') {
@@ -26,6 +24,8 @@ const watchedState = onChange(state, (path) => {
     renderContent(state);
   } else if (path === 'stateName') {
     renderForm(state.form, state.stateName);
+  } else if (path.endsWith('touched') === true) {
+    renderContent(state);
   }
 });
 
