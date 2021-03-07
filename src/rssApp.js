@@ -15,7 +15,7 @@ export default async () => {
       ru,
     },
   });
-  let myModal = new Modal('exampleModal');
+  const myModal = new Modal('exampleModal');
 
   const refreshFeeds = () => {
     const { sources } = watchedState;
@@ -38,6 +38,7 @@ export default async () => {
       .then(() => {
         setTimeout(refreshFeeds, 5000);
       });
+    return null;
   };
 
   const form = document.querySelector('form');
@@ -79,7 +80,7 @@ export default async () => {
   posts.addEventListener('click', (e) => {
     const clickedElemId = e.target.dataset.id;
     if (clickedElemId) {
-      watchedState.posts.find(post => post.id === clickedElemId).touched = true;
+      watchedState.posts.find((post) => post.id === clickedElemId).touched = true;
     }
     const closestButton = e.target.closest('button[data-toggle=modal]');
     if (closestButton) {
