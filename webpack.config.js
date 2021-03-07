@@ -5,13 +5,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
   mode: process.env.NODE_ENV || 'development',
-  // entry: {
-  //   main: './src/index.js',
-  // },
-  entry: ['webpack/hot/dev-server', './src/index.js'],
+  entry: {
+    main: './src/index.js',
+  },
+  // entry: ['webpack/hot/dev-server', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/',
     filename: '[name].[contenthash].js',
   },
   devtool: 'inline-source-map',
