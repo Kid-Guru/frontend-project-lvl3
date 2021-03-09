@@ -1,5 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
-import Modal from 'bootstrap/js/dist/Modal';
+import Modal from 'bootstrap/js/dist/modal.js';
+// import Modal from './node-modules/bootstrap/js/dist/modal.js';
+// import { Modal } from 'bootstrap.esm.min.js';
 
 export default class {
   constructor(IdRootElem) {
