@@ -5,7 +5,7 @@ const state = {
   form: {
     status: '',
     url: '',
-    errors: [],
+    message: [],
   },
   stateName: 'init',
   sources: [],

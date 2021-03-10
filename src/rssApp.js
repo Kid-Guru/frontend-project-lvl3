@@ -31,9 +31,10 @@ export default async () => {
         watchedState.posts = [...newPosts, ...watchedState.posts];
       })
       .catch((error) => {
-        if (!watchedState.form.errors.some((err) => err === error.message)) {
-          watchedState.form.errors.push(error.message);
-        }
+        console.log(error.message);
+        // if (!watchedState.form.message.some((err) => err === error.message)) {
+        //   watchedState.form.message.push(error.message);
+        // }
       })
       .then(() => {
         setTimeout(refreshFeeds, 5000);
