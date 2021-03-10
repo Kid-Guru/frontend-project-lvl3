@@ -48,11 +48,8 @@
     "yup": "^0.32.9"
   },
   "jest": {
-    "transform": {
-      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
-    },
     "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+      "\\.(css|sass)$": "identity-obj-proxy"
     }
   }
 }
