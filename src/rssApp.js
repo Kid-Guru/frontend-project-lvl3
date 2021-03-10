@@ -5,7 +5,7 @@ import formHandler from './utils/formHandler.js';
 import watchedState from './watcher.js';
 import ru from './locales/ru.js';
 import selectNewPosts from './utils/selectNewPosts.js';
-import Modal from './utils/modal.js';
+// import Modal from './utils/modal.js';
 
 export default async () => {
   await i18next.init({
@@ -15,7 +15,7 @@ export default async () => {
       ru,
     },
   });
-  const myModal = new Modal('exampleModal');
+  // const myModal = new Modal('exampleModal');
 
   const refreshFeeds = () => {
     const { sources } = watchedState;
