@@ -43,12 +43,16 @@
     "bootstrap": "^5.0.0-beta2",
     "i18next": "^19.9.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest-transform-stub": "^2.0.0",
     "on-change": "^2.2.3",
     "yup": "^0.32.9"
   },
   "jest": {
+    "transform": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    },
     "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     }
   }
 }
