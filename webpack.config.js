@@ -56,7 +56,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'RSS reader',
       favicon: './src/images/favicon.png',
-      template: './src/template.html',
+      template: './src/index.html',
     }),
     new CleanWebpackPlugin(),
     // new HotModuleReplacementPlugin(),
