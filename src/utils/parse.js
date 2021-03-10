@@ -1,7 +1,7 @@
 const domparser = new DOMParser();
 
 export default (rawData, feedID) => {
-  const docXML = domparser.parseFromString(rawData, 'text/xml');
+  const docXML = domparser.parseFromString(rawData.contents, 'text/xml');
   const channelNode = docXML.querySelector('channel');
   const itemNodes = docXML.querySelectorAll('item');
   const channelTitleNode = channelNode.querySelector('title');
