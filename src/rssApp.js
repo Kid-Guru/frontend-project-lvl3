@@ -45,10 +45,10 @@ export default async () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(form));
-    const { isValid, url, errors } = formHandler(formData, watchedState.sources);
-    watchedState.form = { isValid, url, errors };
-    if (!isValid) return null;
-    // watchedState.form.fetching = true;
+    const { status: formStatus, url, message,
+    } = formHandler(formData, watchedState.sources);
+    watchedState.form = { status: formStatus, url, message };
+    if (formStatus !== 'valid') return null;
     watchedState.stateName = 'fetching';
     // clearInterval(refreshingFunctionID);
     axios.get(url)
@@ -70,7 +70,11 @@ export default async () => {
         // watchedState.form.fetching = false;
       })
       .then(() => {
-        watchedState.form.url = '';
+        watchedState.form = {
+          status: 'valid',
+          url: '',
+          message: ['form.message.fetchingSucces'],
+        };
         setTimeout(refreshFeeds, 5000);
       });
     return null;

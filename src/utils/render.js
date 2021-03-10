@@ -30,8 +30,12 @@ const buildPosts = (postsState) => {
 const renderForm = (stateForm, stateName) => {
   const form = document.querySelector('form');
   if (stateForm.url === '') form.reset();
+
   const feedback = document.querySelector('.feedback');
-  feedback.innerHTML = i18next.t(stateForm.errors.join(''));
+  const feedbackMessage = i18next.t(stateForm.message.join(''));
+  const feedbackType = stateForm.status === 'valid' ? 'success' : 'danger';
+  feedback.innerHTML = `<div class="text-${feedbackType}">${feedbackMessage}</div>`;
+
   const submitButton = document.querySelector('[type="submit"]');
   const submitButtonSpinner = submitButton.querySelector('.spinner-grow');
   const toSubmitButtonDisable = stateName === 'fetching' ? 'add' : 'remove';
