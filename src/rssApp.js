@@ -70,8 +70,9 @@ export default async () => {
         };
       })
       .catch((error) => {
-        // watchedState.form.errors.push(error.message);
+        console.log(error.message);
         watchedState.stateName = 'idle';
+        // watchedState.form.errors.push(error.message);
         // watchedState.form.fetching = false;
       })
       .then(() => {
