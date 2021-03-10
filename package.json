@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/Kid-Guru/frontend-project-lvl3#readme",
   "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
     "moduleNameMapper": {
       "\\.(css|sass)$": "identity-obj-proxy"
     }
