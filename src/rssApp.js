@@ -45,13 +45,13 @@ export default async () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(form));
-    const { isValid, rssLink, errors } = formHandler(formData, watchedState.sources);
-    watchedState.form = { isValid, rssLink, errors };
+    const { isValid, url, errors } = formHandler(formData, watchedState.sources);
+    watchedState.form = { isValid, url, errors };
     if (!isValid) return null;
     // watchedState.form.fetching = true;
     watchedState.stateName = 'fetching';
     // clearInterval(refreshingFunctionID);
-    axios.get(rssLink)
+    axios.get(url)
       .then((response) => {
         const feedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, feedID);
@@ -60,7 +60,7 @@ export default async () => {
         return parsedData;
       })
       .then((parsedData) => {
-        watchedState.sources.unshift(rssLink);
+        watchedState.sources.unshift(url);
         watchedState.feeds.unshift(parsedData.feed);
         watchedState.posts = [...parsedData.posts, ...watchedState.posts];
       })
@@ -70,7 +70,7 @@ export default async () => {
         // watchedState.form.fetching = false;
       })
       .then(() => {
-        watchedState.form.rssLink = '';
+        watchedState.form.url = '';
         setTimeout(refreshFeeds, 5000);
       });
     return null;

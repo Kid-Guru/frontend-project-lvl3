@@ -4,7 +4,7 @@ import { renderContent, renderForm } from './utils/render.js';
 const state = {
   form: {
     isValid: true,
-    rssLink: '',
+    url: '',
     errors: [],
   },
   stateName: 'init',
@@ -18,7 +18,7 @@ const watchedState = onChange(state, (path) => {
     renderForm(state.form);
   } else if (path === 'form.errors') {
     renderForm(state.form);
-  } else if (path === 'form.rssLink') {
+  } else if (path === 'form.url') {
     renderForm(state.form);
   } else if (path === 'posts') {
     renderContent(state);

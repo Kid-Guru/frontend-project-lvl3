@@ -29,7 +29,7 @@ const buildPosts = (postsState) => {
 
 const renderForm = (stateForm, stateName) => {
   const form = document.querySelector('form');
-  if (stateForm.rssLink === '') form.reset();
+  if (stateForm.url === '') form.reset();
   const feedback = document.querySelector('.feedback');
   feedback.innerHTML = i18next.t(stateForm.errors.join(''));
   const submitButton = document.querySelector('[type="submit"]');

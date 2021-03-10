@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  rssLink: yup.string().required('form.fieldError.required').url('form.fieldError.invalidURL'),
+  url: yup.string().required('form.fieldError.required').url('form.fieldError.invalidURL'),
 });
 
 const validate = (fields) => {
