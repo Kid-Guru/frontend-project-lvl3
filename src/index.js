@@ -1,6 +1,4 @@
-// import './custom.css';
-// import './styles/styles.sass';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import app from './rssApp.js';
+import init from './init.js';
+import './styles/styles.sass';
 
-app();
+init();
