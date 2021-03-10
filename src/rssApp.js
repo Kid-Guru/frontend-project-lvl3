@@ -20,7 +20,7 @@ export default async () => {
   const refreshFeeds = () => {
     const { sources } = watchedState;
     if (sources.length === 0) return null;
-    const promises = sources.map((source) => axios.get(`https://hexlet-allorigins.herokuapp.com/get?url=${encodeURIComponent(source)}`));
+    const promises = sources.map((source) => axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${source}`));
     Promise.all(promises)
       // eslint-disable-next-line arrow-body-style
       .then((responses) => responses.flatMap((response, index) => {
@@ -51,7 +51,7 @@ export default async () => {
     if (formStatus !== 'valid') return null;
     watchedState.stateName = 'fetching';
     // clearInterval(refreshingFunctionID);
-    axios.get(`https://hexlet-allorigins.herokuapp.com/get?url=${encodeURIComponent(url)}`)
+    axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${url}`)
       .then((response) => {
         console.log(response);
         const feedID = watchedState.sources.length + 1;
