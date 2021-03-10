@@ -45,8 +45,7 @@ export default async () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(form));
-    const { status: formStatus, url, message,
-    } = formHandler(formData, watchedState.sources);
+    const { status: formStatus, url, message } = formHandler(formData, watchedState.sources);
     watchedState.form = { status: formStatus, url, message };
     if (formStatus !== 'valid') return null;
     watchedState.stateName = 'fetching';
