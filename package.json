@@ -44,5 +44,11 @@
     "i18next": "^19.9.0",
     "on-change": "^2.2.3",
     "yup": "^0.32.9"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|sass)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }
