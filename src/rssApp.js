@@ -63,18 +63,18 @@ export default async () => {
         watchedState.sources.unshift(url);
         watchedState.feeds.unshift(parsedData.feed);
         watchedState.posts = [...parsedData.posts, ...watchedState.posts];
-      })
-      .catch((error) => {
-        watchedState.form.errors.push(error.message);
-        watchedState.stateName = 'idle';
-        // watchedState.form.fetching = false;
-      })
-      .then(() => {
         watchedState.form = {
           status: 'valid',
           url: '',
           message: ['form.message.fetchingSucces'],
         };
+      })
+      .catch((error) => {
+        // watchedState.form.errors.push(error.message);
+        watchedState.stateName = 'idle';
+        // watchedState.form.fetching = false;
+      })
+      .then(() => {
         setTimeout(refreshFeeds, 5000);
       });
     return null;
