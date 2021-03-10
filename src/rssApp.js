@@ -84,9 +84,9 @@ export default async () => {
     }
     const closestButton = e.target.closest('button[data-toggle=modal]');
     if (closestButton) {
-      const { id } = closestButton.dataset;
-      const searchedPost = watchedState.posts.find((post) => post.id === id);
-      myModal.show(searchedPost);
+      // const { id } = closestButton.dataset;
+      // const searchedPost = watchedState.posts.find((post) => post.id === id);
+      // myModal.show(searchedPost);
     }
   });
 };
