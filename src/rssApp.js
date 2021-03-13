@@ -45,7 +45,7 @@ export default async () => {
   const form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (watchedState.stateName === 'fetching') return null
+    if (watchedState.stateName === 'fetching') return null;
     const formData = Object.fromEntries(new FormData(form));
     const { status: formStatus, url, message } = formHandler(formData, watchedState.sources);
     watchedState.form = { status: formStatus, url, message };
