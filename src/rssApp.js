@@ -45,7 +45,6 @@ export default async () => {
   const form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (watchedState.stateName === 'fetching') return null;
     const formData = Object.fromEntries(new FormData(form));
     const { status: formStatus, url, message } = formHandler(formData, watchedState.sources);
     watchedState.form = { status: formStatus, url, message };
@@ -54,6 +53,7 @@ export default async () => {
     // clearInterval(refreshingFunctionID);
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${url}`)
       .then((response) => {
+        console.log(response);
         const feedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, feedID);
         // watchedState.form.fetching = false;
