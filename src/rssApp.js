@@ -53,7 +53,6 @@ export default async () => {
     // clearInterval(refreshingFunctionID);
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${url}`)
       .then((response) => {
-        console.log(response);
         const feedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, feedID);
         // watchedState.form.fetching = false;
