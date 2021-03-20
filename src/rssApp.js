@@ -68,7 +68,7 @@ export default async () => {
         watchedState.form = {
           status: 'valid',
           url: '',
-          message: ['RSS успешно загружен'],
+          message: ['form.message.fetchingSucces'],
         };
       })
       .catch((error) => {
