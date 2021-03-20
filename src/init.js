@@ -1,5 +1,5 @@
 import app from './rssApp.js';
 
-export default () => {
-  app();
+export default async () => {
+  await app();
 };
