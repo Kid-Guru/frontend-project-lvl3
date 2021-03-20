@@ -7,10 +7,10 @@ export default (formData, sources) => {
   if (validationResult.length !== 0) {
     status = 'invalid';
   }
-  const message = validationResult.map((item) => item);
+  let message = validationResult.map((item) => item);
   if (sources.some((i) => i === url)) {
     status = 'invalid';
-    message.push('Источник уже добавлен');
+    message = ['form.message.alreadyAdd'];
   }
   return {
     status, url, message,
