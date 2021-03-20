@@ -3,7 +3,6 @@ import i18next from 'i18next';
 import parse from './utils/parse.js';
 import formHandler from './utils/formHandler.js';
 import watchedStateWrap from './watcher.js';
-import ru from './locales/ru.js';
 import resources from './locales/index.js';
 import selectNewPosts from './utils/selectNewPosts.js';
 import Modal from './utils/modal.js';
