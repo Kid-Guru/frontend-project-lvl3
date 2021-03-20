@@ -7,8 +7,8 @@ import ru from './locales/ru.js';
 import selectNewPosts from './utils/selectNewPosts.js';
 import Modal from './utils/modal.js';
 
-export default () => {
-  i18next.init({
+export default async () => {
+  await i18next.init({
     lng: 'ru',
     // debug: true,
     resources: {
