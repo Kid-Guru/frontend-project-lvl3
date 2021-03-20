@@ -15,7 +15,7 @@ const watchedStateWrapper = (i18next) => {
   };
 
   const watchedState = onChange(state, (path) => {
-    console.log(state);
+    // console.log(state);
     if (path === 'form') {
       renderForm(state.form, state.stateName, i18next);
     } else if (path === 'form.message') {

@@ -48,7 +48,6 @@ export default (i18next) => {
       .then((response) => {
         const newFeedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, newFeedID);
-        watchedState.stateName = 'idle';
         return parsedData;
       })
       .then((parsedData) => {
@@ -60,6 +59,7 @@ export default (i18next) => {
           url: '',
           message: ['form.message.fetchingSucces'],
         };
+        watchedState.stateName = 'idle';
       })
       .catch((error) => {
         console.log(error);
