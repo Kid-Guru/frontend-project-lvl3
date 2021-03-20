@@ -2,7 +2,7 @@ import axios from 'axios';
 import i18next from 'i18next';
 import parse from './utils/parse.js';
 import formHandler from './utils/formHandler.js';
-import watchedState from './watcher.js';
+import watchedStateWrap from './watcher.js';
 import ru from './locales/ru.js';
 import selectNewPosts from './utils/selectNewPosts.js';
 import Modal from './utils/modal.js';
@@ -16,6 +16,7 @@ export default async () => {
     },
   });
   const myModal = new Modal('exampleModal');
+  const watchedState = watchedStateWrap();
 
   const refreshFeeds = () => {
     const { sources } = watchedState;
