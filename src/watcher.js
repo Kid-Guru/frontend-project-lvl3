@@ -18,7 +18,7 @@ const watchedStateWrapper = (i18next) => {
     // console.log(state);
     if (path === 'form') {
       renderForm(state.form, state.stateName, i18next);
-    } else if (path === 'form.errors') {
+    } else if (path === 'form.message') {
       renderForm(state.form, state.stateName, i18next);
     } else if (path === 'form.url') {
       renderForm(state.form, state.stateName, i18next);

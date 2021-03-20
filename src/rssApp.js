@@ -24,9 +24,9 @@ export default (i18next) => {
       })
       .catch((error) => {
         console.log(error.message);
-        // if (!watchedState.form.message.some((err) => err === error.message)) {
-        //   watchedState.form.message.push(error.message);
-        // }
+        if (!watchedState.form.message.some((err) => err === error.message)) {
+          watchedState.form.message.push(error.message);
+        }
       })
       .then(() => {
         setTimeout(refreshFeeds, 5000);
@@ -70,10 +70,10 @@ export default (i18next) => {
             message: ['form.message.invalidRSS'],
           };
         }
-        console.log(error.message);
+        // console.log(error.message);
         watchedState.stateName = 'idle';
-        // watchedState.form.errors.push(error.message);
-        // watchedState.form.fetching = false;
+        watchedState.form.message.push(error.message);
+        watchedState.form.fetching = false;
       })
       .then(() => {
         setTimeout(refreshFeeds, 5000);
