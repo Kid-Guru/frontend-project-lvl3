@@ -4,7 +4,7 @@ import app from './rssApp.js';
 
 export default () => {
   const i18nextInstance = i18next.createInstance();
-  i18nextInstance.init({
+  return i18nextInstance.init({
     lng: 'ru',
     debug: false,
     resources,
