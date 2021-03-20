@@ -8,6 +8,7 @@ export default {
       message: {
         fetchingSucces: 'RSS успешно загружен',
         alreadyAdd: 'RSS уже существует',
+        invalidRSS: 'Ресурс не содержит валидный RSS',
       },
       button: {
         submit: 'Добавить',

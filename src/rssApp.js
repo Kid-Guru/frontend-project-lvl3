@@ -46,8 +46,8 @@ export default (i18next) => {
     // clearInterval(refreshingFunctionID);
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${url}`)
       .then((response) => {
-        const feedID = watchedState.sources.length + 1;
-        const parsedData = parse(response.data, feedID);
+        const newFeedID = watchedState.sources.length + 1;
+        const parsedData = parse(response.data, newFeedID);
         // watchedState.form.fetching = false;
         watchedState.stateName = 'idle';
         return parsedData;
@@ -63,6 +63,13 @@ export default (i18next) => {
         };
       })
       .catch((error) => {
+        if (error.message === 'parse xml error') {
+          watchedState.form = {
+            status: 'valid',
+            url: '',
+            message: ['form.message.invalidRSS'],
+          };
+        }
         console.log(error.message);
         watchedState.stateName = 'idle';
         // watchedState.form.errors.push(error.message);

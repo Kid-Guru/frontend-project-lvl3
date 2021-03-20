@@ -2,6 +2,8 @@ const domparser = new DOMParser();
 
 export default (rawData, feedID) => {
   const docXML = domparser.parseFromString(rawData.contents, 'text/xml');
+  const isParseError = docXML.querySelector('parsererror') !== null;
+  if (isParseError) throw Error('parse xml error');
   const channelNode = docXML.querySelector('channel');
   const itemNodes = docXML.querySelectorAll('item');
   const channelTitleNode = channelNode.querySelector('title');
