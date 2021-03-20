@@ -1,5 +1,3 @@
-// import i18next from 'i18next';
-
 const buildFeeds = (feedsState) => {
   if (feedsState.length === 0) {
     return '';
@@ -17,7 +15,7 @@ const buildPosts = (postsState) => {
   if (postsState.length === 0) {
     return '';
   }
-  const postsItems = postsState.map((post) => `<li class="list-group-item d-flex justify-content-between align-items-center border-light px-0"><a href="${post.link}" target="_blank" class="${post.touched ? 'fw-normal font-weight-normal' : 'fw-bold font-weight-bold'} link-dark" data-id="${post.id}" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm ms-2 fw-bolder" data-id="${post.id}" data-toggle="modal" >Просмотр</button></li>`);
+  const postsItems = postsState.map((post) => `<li class="list-group-item d-flex justify-content-between align-items-center border-light px-0"><a href="${post.link}" target="_blank" class="${post.touched ? 'fw-normal font-weight-normal' : 'fw-bold font-weight-bold'} link-dark" data-id="${post.id}" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm ms-2 fw-bolder" data-id="${post.id}" data-bs-toggle="modal" data-bs-target="#myModal" >Просмотр</button></li>`);
   return `
   <div class="card shadow">
   <div class="card-body">
@@ -42,10 +40,7 @@ const renderForm = (stateForm, stateName, i18next) => {
   const submitButton = document.querySelector('[type="submit"]');
   const submitButtonSpinner = submitButton.querySelector('.spinner-grow');
   submitButton.disabled = stateName === 'fetching';
-  // submitButton.disabled = true;
-  console.dir(submitButton);
-  // const toSubmitButtonDisable = stateName === 'fetching' ? 'add' : 'remove';
-  // submitButton.classList[toSubmitButtonDisable]('disabled');
+
   const toInvisibleSpinner = stateName === 'fetching' ? 'remove' : 'add';
   submitButtonSpinner.classList[toInvisibleSpinner]('invisible');
 };

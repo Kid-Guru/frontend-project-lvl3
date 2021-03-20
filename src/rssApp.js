@@ -1,12 +1,11 @@
 import axios from 'axios';
 import parse from './utils/parse.js';
-import formHandler from './utils/handlers.js';
+import { formHandler, handleModalContent } from './utils/handlers.js';
 import watchedStateWrap from './watcher.js';
 import selectNewPosts from './utils/selectNewPosts.js';
-import Modal from './utils/modal.js';
+import 'bootstrap/js/dist/modal.js';
 
 export default (i18next) => {
-  const myModal = new Modal('exampleModal');
   const watchedState = watchedStateWrap(i18next);
 
   const refreshFeeds = () => {
@@ -62,7 +61,6 @@ export default (i18next) => {
         watchedState.stateName = 'idle';
       })
       .catch((error) => {
-        console.log(error);
         if (error.message === 'parse xml error') {
           watchedState.form = {
             status: 'valid',
@@ -86,11 +84,8 @@ export default (i18next) => {
     if (clickedElemId) {
       watchedState.posts.find((post) => post.id === clickedElemId).touched = true;
     }
-    const closestButton = e.target.closest('button[data-toggle=modal]');
-    if (closestButton) {
-      const { id } = closestButton.dataset;
-      const searchedPost = watchedState.posts.find((post) => post.id === id);
-      myModal.show(searchedPost);
-    }
   });
+
+  const myModal = document.querySelector('#myModal');
+  myModal.addEventListener('show.bs.modal', (e) => handleModalContent(e, watchedState));
 };
