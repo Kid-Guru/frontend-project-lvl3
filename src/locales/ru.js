@@ -9,6 +9,7 @@ export default {
         fetchingSucces: 'RSS успешно загружен',
         alreadyAdd: 'RSS уже существует',
         invalidRSS: 'Ресурс не содержит валидный RSS',
+        networkError: 'Ошибка сети',
       },
       button: {
         submit: 'Добавить',
