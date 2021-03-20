@@ -22,7 +22,6 @@ export default (i18next) => {
         watchedState.posts = [...newPosts, ...watchedState.posts];
       })
       .catch((error) => {
-        // console.log(error.message);
         if (!watchedState.form.message.some((err) => err === error.message)) {
           watchedState.form.message = ['form.message.networkError'];
         }
@@ -37,7 +36,6 @@ export default (i18next) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(form));
-    console.log('CLICK!!!!', formData);
     const { status: formStatus, url, message } = formHandler(formData, watchedState.sources);
     watchedState.form = { status: formStatus, url, message };
     if (formStatus !== 'valid') return null;
@@ -80,9 +78,10 @@ export default (i18next) => {
 
   const posts = document.querySelector('.posts');
   posts.addEventListener('click', (e) => {
-    const clickedElemId = e.target.dataset.id;
-    if (clickedElemId) {
-      watchedState.posts.find((post) => post.id === clickedElemId).touched = true;
+    const clickedPostId = e.target.dataset.id;
+    if (clickedPostId) {
+      const clickedPost = watchedState.posts.find((post) => post.id === clickedPostId);
+      clickedPost.touched = true;
     }
   });
 

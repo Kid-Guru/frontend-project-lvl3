@@ -6,6 +6,7 @@ const watchedStateWrapper = (i18next) => {
     form: {
       status: '',
       url: '',
+      isValid: true,
       message: [],
     },
     stateName: 'init',

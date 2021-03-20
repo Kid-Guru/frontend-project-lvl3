@@ -3,17 +3,16 @@ import validate from './validate.js';
 const formHandler = (formData, sources) => {
   const validationResult = validate(formData);
   const { url } = formData;
-  let status = 'valid';
-  if (validationResult.length !== 0) {
-    status = 'invalid';
-  }
-  let message = validationResult.map((item) => item);
-  if (sources.some((i) => i === url)) {
-    status = 'invalid';
-    message = ['form.message.alreadyAdd'];
-  }
+
+  const errors = [...validationResult];
+
+  const isSourceAlreadyExists = sources.some((i) => i === url);
+  if (isSourceAlreadyExists) errors.push('form.message.alreadyExists');
+
+  const firstError = errors[0] || '';
+  const status = errors.length === 0 ? 'valid' : 'invalid';
   return {
-    status, url, message,
+    status, url, message: [firstError],
   };
 };
 
