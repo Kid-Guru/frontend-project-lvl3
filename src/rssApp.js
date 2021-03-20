@@ -4,6 +4,7 @@ import parse from './utils/parse.js';
 import formHandler from './utils/formHandler.js';
 import watchedStateWrap from './watcher.js';
 import ru from './locales/ru.js';
+import resources from './locales/index.js';
 import selectNewPosts from './utils/selectNewPosts.js';
 import Modal from './utils/modal.js';
 
@@ -11,10 +12,9 @@ export default () => {
   i18next.init({
     lng: 'ru',
     debug: true,
-    resources: {
-      ru,
-    },
+    resources,
   }).then(() => {
+    console.log(i18next.store.data.ru.translation.form);
     const myModal = new Modal('exampleModal');
     const watchedState = watchedStateWrap();
 
