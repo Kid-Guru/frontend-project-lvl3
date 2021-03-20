@@ -1,7 +1,7 @@
 import onChange from 'on-change';
 import { renderContent, renderForm } from './utils/render.js';
 
-const watchedStateWrapper = () => {
+const watchedStateWrapper = (i18next) => {
   const state = {
     form: {
       status: '',
@@ -17,17 +17,17 @@ const watchedStateWrapper = () => {
   const watchedState = onChange(state, (path) => {
     console.log(state);
     if (path === 'form') {
-      renderForm(state.form);
+      renderForm(state.form, state.stateName, i18next);
     } else if (path === 'form.errors') {
-      renderForm(state.form);
+      renderForm(state.form, state.stateName, i18next);
     } else if (path === 'form.url') {
-      renderForm(state.form);
+      renderForm(state.form, state.stateName, i18next);
     } else if (path === 'posts') {
-      renderContent(state);
+      renderContent(state, state.stateName, i18next);
     } else if (path === 'stateName') {
-      renderForm(state.form, state.stateName);
+      renderForm(state.form, state.stateName, i18next);
     } else if (path.endsWith('touched') === true) {
-      renderContent(state);
+      renderContent(state, i18next);
     }
   });
 

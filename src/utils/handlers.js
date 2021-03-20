@@ -1,6 +1,6 @@
 import validate from './validate.js';
 
-export default (formData, sources) => {
+const formHandler = (formData, sources) => {
   const validationResult = validate(formData);
   const { url } = formData;
   let status = 'valid';
@@ -16,3 +16,5 @@ export default (formData, sources) => {
     status, url, message,
   };
 };
+
+export { formHandler };

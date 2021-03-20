@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+// import i18next from 'i18next';
 
 const buildFeeds = (feedsState) => {
   if (feedsState.length === 0) {
@@ -27,7 +27,7 @@ const buildPosts = (postsState) => {
 </div>`;
 };
 
-const renderForm = (stateForm, stateName) => {
+const renderForm = (stateForm, stateName, i18next) => {
   const form = document.querySelector('form');
   if (stateForm.url === '') form.reset();
 
