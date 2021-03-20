@@ -7,7 +7,7 @@ export default {
       },
       message: {
         fetchingSucces: 'RSS успешно загружен',
-        alreadyAdd: 'Источник уже добавлен',
+        alreadyAdd: 'RSS уже существует',
       },
       button: {
         submit: 'Добавить',
