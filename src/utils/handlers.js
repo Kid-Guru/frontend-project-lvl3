@@ -17,4 +17,4 @@ const formHandler = (formData, sources) => {
   };
 };
 
-export { formHandler };
+export default formHandler;

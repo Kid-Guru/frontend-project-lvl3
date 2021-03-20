@@ -1,6 +1,6 @@
 import axios from 'axios';
 import parse from './utils/parse.js';
-import { formHandler } from './utils/handlers.js';
+import formHandler from './utils/handlers.js';
 import watchedStateWrap from './watcher.js';
 import selectNewPosts from './utils/selectNewPosts.js';
 import Modal from './utils/modal.js';
