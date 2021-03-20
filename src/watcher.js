@@ -14,7 +14,7 @@ const state = {
 };
 
 const watchedState = onChange(state, (path) => {
-  console.log(path, state);
+  console.log(state);
   if (path === 'form') {
     renderForm(state.form);
   } else if (path === 'form.errors') {
