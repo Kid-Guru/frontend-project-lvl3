@@ -31,6 +31,9 @@ const renderForm = (stateForm, stateName, i18next) => {
   const form = document.querySelector('form');
   if (stateForm.url === '') form.reset();
 
+  const inputURL = document.querySelector('input[name=url]');
+  inputURL.readOnly = stateName === 'fetching';
+
   const feedback = document.querySelector('.feedback');
   const feedbackMessage = i18next.t(stateForm.message.join(''));
   const feedbackType = stateForm.status === 'valid' ? 'success' : 'danger';
