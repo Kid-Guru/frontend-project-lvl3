@@ -23,11 +23,11 @@ const watchedStateWrapper = (i18next) => {
     } else if (path === 'form.url') {
       renderForm(state.form, state.stateName, i18next);
     } else if (path === 'posts') {
-      renderContent(state, state.stateName, i18next);
+      renderContent(state);
     } else if (path === 'stateName') {
       renderForm(state.form, state.stateName, i18next);
     } else if (path.endsWith('touched') === true) {
-      renderContent(state, i18next);
+      renderContent(state);
     }
   });
 

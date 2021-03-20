@@ -41,8 +41,9 @@ const renderForm = (stateForm, stateName, i18next) => {
 
   const submitButton = document.querySelector('[type="submit"]');
   const submitButtonSpinner = submitButton.querySelector('.spinner-grow');
-  const toSubmitButtonDisable = stateName === 'fetching' ? 'add' : 'remove';
-  submitButton.classList[toSubmitButtonDisable]('disabled');
+  submitButton.isDisabled = stateName === 'fetching';
+  // const toSubmitButtonDisable = stateName === 'fetching' ? 'add' : 'remove';
+  // submitButton.classList[toSubmitButtonDisable]('disabled');
   const toInvisibleSpinner = stateName === 'fetching' ? 'remove' : 'add';
   submitButtonSpinner.classList[toInvisibleSpinner]('invisible');
 };

@@ -48,7 +48,6 @@ export default (i18next) => {
       .then((response) => {
         const newFeedID = watchedState.sources.length + 1;
         const parsedData = parse(response.data, newFeedID);
-        // watchedState.form.fetching = false;
         watchedState.stateName = 'idle';
         return parsedData;
       })
