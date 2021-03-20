@@ -70,7 +70,7 @@ export default (i18next) => {
             url: '',
             message: ['form.message.invalidRSS'],
           };
-        } else if (error.message.toLowerCase() === 'network error') {
+        } else if (error.message === 'Network Error' || error.message === 'no internet') {
           watchedState.form.message = ['form.message.networkError'];
         }
         watchedState.stateName = 'idle';
