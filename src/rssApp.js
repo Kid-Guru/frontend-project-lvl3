@@ -63,14 +63,14 @@ export default (i18next) => {
         };
       })
       .catch((error) => {
-        console.log('error', error);
+        console.log(error.toJSON());
         if (error.message === 'parse xml error') {
           watchedState.form = {
             status: 'valid',
             url: '',
             message: ['form.message.invalidRSS'],
           };
-        } else if (error.message === 'Network Error') {
+        } else if (error.toJSON().message.toLowerCase() === 'network error') {
           watchedState.form.message = ['form.message.networkError'];
         }
         watchedState.stateName = 'idle';
