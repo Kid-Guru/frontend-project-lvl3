@@ -63,7 +63,7 @@ export default (i18next) => {
         };
       })
       .catch((error) => {
-        // console.log(error.toJSON());
+        console.log(error);
         if (error.message === 'parse xml error') {
           watchedState.form = {
             status: 'valid',
