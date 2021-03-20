@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS reader</title>
+</head>
+
+<body>
+  <div id="point">
+    <div class="bg-primary shadow-sm">
+      <div class="container-lg px-4">
+        <nav class="navbar navbar-light col-xl-10 mx-auto justify-content-end">
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-dark" for="btnradio1">Русский</label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-dark" for="btnradio2">English</label>
+          </div>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary full-article" href="#" role="button" target="_blank"
+              rel="noopener noreferrer">Читать полностью </a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="container-lg p-4">
+        <div class="row">
+          <div class="col-xl-10 mx-auto">
+            <h1 class="display-3">RSS агрегатор</h1>
+            <form>
+              <div class="row gy-3">
+                <div class="col-sm col-12">
+                  <input autofocus type="text" name="url" class="form-control form-control-lg"
+                    placeholder="Ссылка RSS" aria-label="url">
+                </div>
+                <div class="col-sm-auto col">
+                  <button type="submit" class="btn btn-lg btn-primary" name="submitButton" aria-label="add">
+                    <span class="spinner-grow spinner-grow-sm invisible"aria-hidden="true"></span>
+                    Добавить
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="feedback"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="container-lg p-4 ">
+        <div class="row gy-4">
+          <div class="col-xl-10 mx-auto feed"></div>
+          <div class="col-xl-10 mx-auto posts"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
