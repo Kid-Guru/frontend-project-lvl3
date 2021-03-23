@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 import axios from 'axios';
 import httpAdapter from 'axios/lib/adapters/http';
 import '@testing-library/jest-dom';
-import { screen } from '@testing-library/dom';
+import { waitFor, screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import nock from 'nock';
 
