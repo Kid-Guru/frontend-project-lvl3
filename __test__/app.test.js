@@ -4,21 +4,24 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 import axios from 'axios';
 import httpAdapter from 'axios/lib/adapters/http';
 import '@testing-library/jest-dom';
-import { waitFor, screen } from '@testing-library/dom';
+// import { waitFor, screen } from '@testing-library/dom';
+import { screen, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import nock from 'nock';
+import appRun from '../src/init.js';
+
+// const { screen, waitFor } = testingLibraryDom;
+// const { userEvent } = userEvent;
 
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
-import appRun from '../src/init.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const pathToIndex = getFixturePath('index.html');
 
@@ -33,7 +36,8 @@ beforeEach(async () => {
 
   elements.input = screen.getByRole('textbox');
   elements.submit = screen.getByRole('button');
-  elements.feedback = screen.getByRole('feedback');
+  // elements.feedback = screen.getByRole('feedback');
+  elements.feedback = document.querySelector('.feedback');
 
   appRun();
 });
